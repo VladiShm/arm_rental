@@ -41,7 +41,10 @@ namespace arm_rental
                             log = Autorization.login_a;
                             mainF mainF = new mainF();
                             mainF.Show();
-                            
+                            mainF.listBoxFree.Visible = false;
+                            mainF.label2.Visible = false;
+                            mainF.buttonAddArenda.Visible = false;
+
                             //this.Hide();
                         }
                         break;
@@ -54,6 +57,12 @@ namespace arm_rental
                             mainF mainF = new mainF();
                             mainF.Show();
                             mainF.êëèåíòûToolStripMenuItem.Visible = false;
+                            mainF.listBoxInventories.Visible = false;
+                            mainF.buttonAdd.Visible = false;
+                            mainF.label1.Visible = false;
+                            mainF.èíâåíòàğüToolStripMenuItem.Visible = false;
+                            mainF.êàòåãîğèÿÈíâåíòàğÿToolStripMenuItem.Visible = false;
+                            mainF.äàííûåToolStripMenuItem.Visible=false;
                             //this.Hide();
                         }
                         break;
