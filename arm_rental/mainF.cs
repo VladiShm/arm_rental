@@ -76,7 +76,7 @@ namespace arm_rental
             {
                 listBoxFree.Items.Clear();
                 sqlCommands.Connection();
-                string command = "select r.inventories_id, inventory, price from rentals as r join inventories as i on r.inventories_id = i.id_i where r.client_id is null";
+                string command = "select r.inventories_id, inventory, category, price from rentals as r join inventories as i on r.inventories_id = i.id_i join categories as c on c.id_c = i.id_category where r.client_id is null";
                 DataTable dt = new DataTable();
                 NpgsqlDataReader dr;
                 using (var cmd = new NpgsqlCommand(command, sqlCommands.strCon))
@@ -87,7 +87,7 @@ namespace arm_rental
                     foreach (DataRow i in dt.Rows)
                     {
                         idFreeArenda.Add(Convert.ToInt32(i["inventories_id"]));
-                        row = $"Инвентарь: {i["inventory"]} ║ Цена: {i["price"]}";
+                        row = $"Категория: {i["category"]} ║ Инвентарь: {i["inventory"]} ║ Цена: {i["price"]}";
                         listBoxFree.Items.Add(row);
                     }
                 }
@@ -104,7 +104,7 @@ namespace arm_rental
             {
                 listBoxInventories.Items.Clear();
                 sqlCommands.Connection();
-                string command = "select name, inventory, price from rentals as r join clients as c on r.client_id = c.id join inventories as i on r.inventories_id = i.id_i where r.client_id is not null";
+                string command = "select name, inventory, price, category from rentals as r join clients as c on r.client_id = c.id join inventories as i on r.inventories_id = i.id_i join categories as cat on cat.id_c = i.id_category where r.client_id is not null";
                 DataTable dt = new DataTable();
                 NpgsqlDataReader dr;
                 using (var cmd = new NpgsqlCommand(command, sqlCommands.strCon))
@@ -114,7 +114,7 @@ namespace arm_rental
                     string row;
                     foreach (DataRow i in dt.Rows)
                     {
-                        row = $"Клиент: {i["name"]} ║ Инвентарь: {i["inventory"]} ║ Цена: {i["price"]}";
+                        row = $"Клиент: {i["name"]} ║ Категория: {i["category"]} ║  Инвентарь: {i["inventory"]} ║ Цена: {i["price"]}";
                         listBoxInventories.Items.Add(row);
                     }
                 }
@@ -175,6 +175,23 @@ namespace arm_rental
             {
                 MessageBox.Show("Нет свободной аренды!");
             }
+        }
+
+        private void listBoxFree_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PersonArea personArea = new PersonArea();
+            personArea.Show();
+        }
+
+        private void редактироватьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            InventoryChange inventoryChange = new InventoryChange();
+            inventoryChange.Show();
         }
     }
 }

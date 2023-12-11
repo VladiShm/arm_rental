@@ -63,9 +63,39 @@ namespace arm_rental.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap free_icon_groups_2444446 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-groups-2444446", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap free_icon_loading_arrows_81948 {
             get {
                 object obj = ResourceManager.GetObject("free-icon-loading-arrows-81948", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap free_icon_profile_5234474 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-profile-5234474", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap free_icon_profile_52344741 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-profile-52344741", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

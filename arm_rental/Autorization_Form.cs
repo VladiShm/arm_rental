@@ -36,7 +36,7 @@ namespace arm_rental
                     case "admin":
                         if (login == Autorization.login_a && Autorization.NewHash(Autorization.GenerateHash(password)) == Autorization.password_a)
                         {
-                            whoIs = "admin";
+                            whoIs = "admins";
                             pass = Autorization.password_a;
                             log = Autorization.login_a;
                             mainF mainF = new mainF();
@@ -51,7 +51,7 @@ namespace arm_rental
                     case "client":
                         if (login == Autorization.login_a && Autorization.NewHash(Autorization.GenerateHash(password)) == Autorization.password_a)
                         {
-                            whoIs = "client";
+                            whoIs = "clients";
                             pass = Autorization.password_a;
                             log = Autorization.login_a;
                             mainF mainF = new mainF();

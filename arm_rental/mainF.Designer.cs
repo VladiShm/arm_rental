@@ -48,6 +48,7 @@
             listBoxFree = new ListBox();
             buttonAddArenda = new Button();
             label2 = new Label();
+            button2 = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -86,20 +87,21 @@
             // добавитьToolStripMenuItem1
             // 
             добавитьToolStripMenuItem1.Name = "добавитьToolStripMenuItem1";
-            добавитьToolStripMenuItem1.Size = new Size(194, 26);
+            добавитьToolStripMenuItem1.Size = new Size(224, 26);
             добавитьToolStripMenuItem1.Text = "Добавить";
             добавитьToolStripMenuItem1.Click += добавитьToolStripMenuItem1_Click;
             // 
             // редактироватьToolStripMenuItem1
             // 
             редактироватьToolStripMenuItem1.Name = "редактироватьToolStripMenuItem1";
-            редактироватьToolStripMenuItem1.Size = new Size(194, 26);
+            редактироватьToolStripMenuItem1.Size = new Size(224, 26);
             редактироватьToolStripMenuItem1.Text = "Редактировать";
+            редактироватьToolStripMenuItem1.Click += редактироватьToolStripMenuItem1_Click;
             // 
             // удалитьToolStripMenuItem1
             // 
             удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
-            удалитьToolStripMenuItem1.Size = new Size(194, 26);
+            удалитьToolStripMenuItem1.Size = new Size(224, 26);
             удалитьToolStripMenuItem1.Text = "Удалить";
             удалитьToolStripMenuItem1.Click += удалитьToolStripMenuItem1_Click;
             // 
@@ -182,17 +184,18 @@
             listBoxInventories.ItemHeight = 20;
             listBoxInventories.Location = new Point(25, 105);
             listBoxInventories.Name = "listBoxInventories";
-            listBoxInventories.Size = new Size(427, 384);
+            listBoxInventories.Size = new Size(668, 384);
             listBoxInventories.TabIndex = 5;
             // 
             // listBoxFree
             // 
             listBoxFree.FormattingEnabled = true;
             listBoxFree.ItemHeight = 20;
-            listBoxFree.Location = new Point(25, 85);
+            listBoxFree.Location = new Point(25, 65);
             listBoxFree.Name = "listBoxFree";
             listBoxFree.Size = new Size(572, 424);
             listBoxFree.TabIndex = 6;
+            listBoxFree.SelectedIndexChanged += listBoxFree_SelectedIndexChanged;
             // 
             // buttonAddArenda
             // 
@@ -214,11 +217,23 @@
             label2.TabIndex = 8;
             label2.Text = "Доступно для аренды";
             // 
+            // button2
+            // 
+            button2.BackgroundImage = Properties.Resources.free_icon_groups_2444446;
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.Location = new Point(733, 41);
+            button2.Name = "button2";
+            button2.Size = new Size(55, 50);
+            button2.TabIndex = 9;
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // mainF
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 588);
+            Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(buttonAddArenda);
             Controls.Add(listBoxFree);
@@ -259,5 +274,6 @@
         public Label label2;
         public Button button1;
         public Button buttonAddArenda;
+        private Button button2;
     }
 }
