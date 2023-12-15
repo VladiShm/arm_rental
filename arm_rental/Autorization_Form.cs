@@ -44,7 +44,7 @@ namespace arm_rental
                             mainF.listBoxFree.Visible = false;
                             mainF.label2.Visible = false;
                             mainF.buttonAddArenda.Visible = false;
-
+                            mainF.myRental.Visible = false;
                             //this.Hide();
                         }
                         break;
@@ -63,6 +63,7 @@ namespace arm_rental
                             mainF.èíâåíòàğüToolStripMenuItem.Visible = false;
                             mainF.êàòåãîğèÿÈíâåíòàğÿToolStripMenuItem.Visible = false;
                             mainF.äàííûåToolStripMenuItem.Visible=false;
+                            mainF.listBox1.Visible = false;
                             //this.Hide();
                         }
                         break;

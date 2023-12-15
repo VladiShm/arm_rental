@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
             клиентыToolStripMenuItem = new ToolStripMenuItem();
             добавитьToolStripMenuItem = new ToolStripMenuItem();
+            удалитьToolStripMenuItem2 = new ToolStripMenuItem();
             инвентарьToolStripMenuItem = new ToolStripMenuItem();
             добавитьToolStripMenuItem1 = new ToolStripMenuItem();
             редактироватьToolStripMenuItem1 = new ToolStripMenuItem();
@@ -41,30 +43,36 @@
             редактироватьToolStripMenuItem = new ToolStripMenuItem();
             данныеToolStripMenuItem = new ToolStripMenuItem();
             отчетToolStripMenuItem = new ToolStripMenuItem();
+            нестандарныеЗапросыToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             buttonAdd = new Button();
             button1 = new Button();
             listBoxInventories = new ListBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            удалитьToolStripMenuItem3 = new ToolStripMenuItem();
             listBoxFree = new ListBox();
             buttonAddArenda = new Button();
             label2 = new Label();
             button2 = new Button();
+            myRental = new ListBox();
+            listBox1 = new ListBox();
             menuStrip1.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { клиентыToolStripMenuItem, инвентарьToolStripMenuItem, категорияИнвентаряToolStripMenuItem, данныеToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { клиентыToolStripMenuItem, инвентарьToolStripMenuItem, категорияИнвентаряToolStripMenuItem, данныеToolStripMenuItem, нестандарныеЗапросыToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 28);
+            menuStrip1.Size = new Size(1229, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // клиентыToolStripMenuItem
             // 
-            клиентыToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { добавитьToolStripMenuItem });
+            клиентыToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { добавитьToolStripMenuItem, удалитьToolStripMenuItem2 });
             клиентыToolStripMenuItem.Name = "клиентыToolStripMenuItem";
             клиентыToolStripMenuItem.Size = new Size(83, 24);
             клиентыToolStripMenuItem.Text = "Клиенты";
@@ -77,6 +85,13 @@
             добавитьToolStripMenuItem.Text = "Добавить";
             добавитьToolStripMenuItem.Click += добавитьToolStripMenuItem_Click;
             // 
+            // удалитьToolStripMenuItem2
+            // 
+            удалитьToolStripMenuItem2.Name = "удалитьToolStripMenuItem2";
+            удалитьToolStripMenuItem2.Size = new Size(159, 26);
+            удалитьToolStripMenuItem2.Text = "Удалить";
+            удалитьToolStripMenuItem2.Click += удалитьToolStripMenuItem2_Click;
+            // 
             // инвентарьToolStripMenuItem
             // 
             инвентарьToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { добавитьToolStripMenuItem1, редактироватьToolStripMenuItem1, удалитьToolStripMenuItem1 });
@@ -87,21 +102,21 @@
             // добавитьToolStripMenuItem1
             // 
             добавитьToolStripMenuItem1.Name = "добавитьToolStripMenuItem1";
-            добавитьToolStripMenuItem1.Size = new Size(224, 26);
+            добавитьToolStripMenuItem1.Size = new Size(194, 26);
             добавитьToolStripMenuItem1.Text = "Добавить";
             добавитьToolStripMenuItem1.Click += добавитьToolStripMenuItem1_Click;
             // 
             // редактироватьToolStripMenuItem1
             // 
             редактироватьToolStripMenuItem1.Name = "редактироватьToolStripMenuItem1";
-            редактироватьToolStripMenuItem1.Size = new Size(224, 26);
+            редактироватьToolStripMenuItem1.Size = new Size(194, 26);
             редактироватьToolStripMenuItem1.Text = "Редактировать";
             редактироватьToolStripMenuItem1.Click += редактироватьToolStripMenuItem1_Click;
             // 
             // удалитьToolStripMenuItem1
             // 
             удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
-            удалитьToolStripMenuItem1.Size = new Size(224, 26);
+            удалитьToolStripMenuItem1.Size = new Size(194, 26);
             удалитьToolStripMenuItem1.Text = "Удалить";
             удалитьToolStripMenuItem1.Click += удалитьToolStripMenuItem1_Click;
             // 
@@ -147,6 +162,13 @@
             отчетToolStripMenuItem.Text = "Отчет";
             отчетToolStripMenuItem.Click += отчетToolStripMenuItem_Click;
             // 
+            // нестандарныеЗапросыToolStripMenuItem
+            // 
+            нестандарныеЗапросыToolStripMenuItem.Name = "нестандарныеЗапросыToolStripMenuItem";
+            нестандарныеЗапросыToolStripMenuItem.Size = new Size(189, 24);
+            нестандарныеЗапросыToolStripMenuItem.Text = "Нестандарные запросы";
+            нестандарныеЗапросыToolStripMenuItem.Click += нестандарныеЗапросыToolStripMenuItem_Click;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -180,12 +202,28 @@
             // 
             // listBoxInventories
             // 
+            listBoxInventories.ContextMenuStrip = contextMenuStrip1;
             listBoxInventories.FormattingEnabled = true;
             listBoxInventories.ItemHeight = 20;
             listBoxInventories.Location = new Point(25, 105);
             listBoxInventories.Name = "listBoxInventories";
-            listBoxInventories.Size = new Size(668, 384);
+            listBoxInventories.Size = new Size(661, 384);
             listBoxInventories.TabIndex = 5;
+            listBoxInventories.SelectedIndexChanged += listBoxInventories_SelectedIndexChanged_1;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { удалитьToolStripMenuItem3 });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(135, 28);
+            // 
+            // удалитьToolStripMenuItem3
+            // 
+            удалитьToolStripMenuItem3.Name = "удалитьToolStripMenuItem3";
+            удалитьToolStripMenuItem3.Size = new Size(134, 24);
+            удалитьToolStripMenuItem3.Text = "Удалить";
+            удалитьToolStripMenuItem3.Click += удалитьToolStripMenuItem3_Click;
             // 
             // listBoxFree
             // 
@@ -193,7 +231,7 @@
             listBoxFree.ItemHeight = 20;
             listBoxFree.Location = new Point(25, 65);
             listBoxFree.Name = "listBoxFree";
-            listBoxFree.Size = new Size(572, 424);
+            listBoxFree.Size = new Size(685, 424);
             listBoxFree.TabIndex = 6;
             listBoxFree.SelectedIndexChanged += listBoxFree_SelectedIndexChanged;
             // 
@@ -221,18 +259,39 @@
             // 
             button2.BackgroundImage = Properties.Resources.free_icon_groups_2444446;
             button2.BackgroundImageLayout = ImageLayout.Stretch;
-            button2.Location = new Point(733, 41);
+            button2.Location = new Point(1162, 31);
             button2.Name = "button2";
             button2.Size = new Size(55, 50);
             button2.TabIndex = 9;
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // myRental
+            // 
+            myRental.FormattingEnabled = true;
+            myRental.ItemHeight = 20;
+            myRental.Location = new Point(760, 60);
+            myRental.Name = "myRental";
+            myRental.Size = new Size(379, 424);
+            myRental.TabIndex = 10;
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 20;
+            listBox1.Location = new Point(716, 105);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(463, 384);
+            listBox1.TabIndex = 11;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
             // mainF
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 588);
+            ClientSize = new Size(1229, 588);
+            Controls.Add(listBox1);
+            Controls.Add(myRental);
             Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(buttonAddArenda);
@@ -248,6 +307,7 @@
             Load += mainF_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -275,5 +335,11 @@
         public Button button1;
         public Button buttonAddArenda;
         private Button button2;
+        public ListBox myRental;
+        private ToolStripMenuItem удалитьToolStripMenuItem2;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem удалитьToolStripMenuItem3;
+        public ListBox listBox1;
+        private ToolStripMenuItem нестандарныеЗапросыToolStripMenuItem;
     }
 }
